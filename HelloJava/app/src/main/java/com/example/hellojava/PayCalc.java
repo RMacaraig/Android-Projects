@@ -27,3 +27,36 @@ public class PayCalc {
 
     }
 }
+
+
+
+
+//public class simpleCalc {
+//
+//    double add(){
+//        return 0;
+//    }
+//
+//    double mult(){
+//        return 0;
+//    }
+//
+//    double exp(){
+//        return 0;
+//    }
+//
+//    simpleCalc(){
+//
+//    };
+
+/*
+Experiment:
+Add type of employee (full-time or part-time)
+Add data member to indicate the basic pay of employee
+(basic pay for part-time is $20, full-time is $50)
+add a variable to represent the number of hours employee has worked
+
+add a method to calculate the final pay for
+the employee considering the number of hours they
+have worked and their status
+ */
