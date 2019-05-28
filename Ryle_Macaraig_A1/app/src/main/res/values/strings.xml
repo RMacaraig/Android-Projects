@@ -2,7 +2,7 @@
     <!-- <string name="app_name">Ryle_Macaraig_A1</string> -->
     <string name="app_name">FeedbackApp</string>
     <string name="title">We value your feedback</string>
-    <string name="prompt_app">Would you like to recommend this app to a friends</string>
+    <string name="prompt_app">Would you like to recommend this app to a friends?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="maybe">Maybe</string>
