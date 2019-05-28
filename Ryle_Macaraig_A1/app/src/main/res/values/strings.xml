@@ -1,0 +1,22 @@
+<resources>
+    <!-- <string name="app_name">Ryle_Macaraig_A1</string> -->
+    <string name="app_name">FeedbackApp</string>
+    <string name="title">We value your feedback</string>
+    <string name="prompt_app">Would you like to recommend this app to a friends</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="maybe">Maybe</string>
+    <string name="prompt_hobbies">Please select your hobbies.</string>
+    <string name="guitar">Guitar</string>
+    <string name="football">Football</string>
+    <string name="singing">Singing</string>
+    <string name="chess">Chess</string>
+    <string name="horse_riding">Horse Riding</string>
+    <string name="reading">Reading</string>
+    <string name="prompt_newsletter">Please select the frequency of newsletter.</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="never">Never</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+</resources>
