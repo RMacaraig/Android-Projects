@@ -1,3 +1,8 @@
+<!--
+ Created by 991435278: Ryle Cheyene Macaraig
+ on 2019-05-28.
+-->
+
 <resources>
     <!-- <string name="app_name">Ryle_Macaraig_A1</string> -->
     <string name="app_name">FeedbackApp</string>
@@ -14,9 +19,17 @@
     <string name="horse_riding">Horse Riding</string>
     <string name="reading">Reading</string>
     <string name="prompt_newsletter">Please select the frequency of newsletter.</string>
-    <string name="weekly">Weekly</string>
-    <string name="monthly">Monthly</string>
-    <string name="never">Never</string>
+
+    <string-array name="array_newsletter">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Never</item>
+    </string-array>
+
+    <!--<string name="weekly">Weekly</string>-->
+    <!--<string name="monthly">Monthly</string>-->
+    <!--<string name="never">Never</string>-->
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
 </resources>

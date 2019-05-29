@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--
+ Created by 991435278: Ryle Cheyene Macaraig
+ on 2019-05-28.
+    -->
+
     <TextView
         android:id="@+id/txt_title"
         android:layout_width="0dp"
@@ -52,21 +57,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/yes" />
+            android:text="@string/yes"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rdo_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/no" />
+            android:text="@string/no"
+            android:textSize="18sp" />
 
         <RadioButton
             android:id="@+id/rdo_maybe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/maybe" />
+            android:text="@string/maybe"
+            android:textSize="18sp" />
     </RadioGroup>
 
     <TextView
@@ -91,6 +99,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/guitar"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_chess"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_hobbies" />
@@ -103,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/football"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_horse_riding"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chk_guitar" />
@@ -115,6 +125,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/singing"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_reading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chk_football" />
@@ -127,6 +138,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/chess"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_guitar"
         app:layout_constraintTop_toBottomOf="@+id/txt_hobbies" />
@@ -139,6 +151,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/horse_riding"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_football"
         app:layout_constraintTop_toBottomOf="@+id/chk_chess" />
@@ -151,6 +164,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/reading"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_singing"
         app:layout_constraintTop_toBottomOf="@+id/chk_horse_riding" />
@@ -171,6 +185,7 @@
 
     <Spinner
         android:id="@+id/spn_newsletter"
+        android:entries="@array/array_newsletter"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -231,6 +246,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/submit"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
         app:layout_constraintStart_toStartOf="parent"
@@ -246,6 +262,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/cancel"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_submit"

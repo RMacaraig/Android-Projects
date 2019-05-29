@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ryle_macaraig_a1">
 
+    <!--
+     Created by 991435278: Ryle Cheyene Macaraig
+     on 2019-05-28.
+    -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
