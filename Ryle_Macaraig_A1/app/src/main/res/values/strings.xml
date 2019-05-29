@@ -19,8 +19,10 @@
     <string name="horse_riding">Horse Riding</string>
     <string name="reading">Reading</string>
     <string name="prompt_newsletter">Please select the frequency of newsletter.</string>
+    <string name="weekly">Weekly</string>
 
-    <string-array name="array_newsletter">
+
+    <string-array name="newsletter_array">
         <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>

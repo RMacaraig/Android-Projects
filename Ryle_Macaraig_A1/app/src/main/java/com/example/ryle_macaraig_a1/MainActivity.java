@@ -3,6 +3,7 @@ package com.example.ryle_macaraig_a1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -17,26 +18,68 @@ import android.widget.Toast;
  */
 
 //implements View.OnClickListener
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     //variables to call all objects
     Button btnSubmit, btnCancel;
     EditText edtName, edtEmail, edtPhone;
     RadioGroup rdoApp;
-    RadioButton rdoYes, rdoNo, rdoMaybe;
-    //spinner??????
+    RadioButton rdoSelected;
+    Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Submit button
-        btnSubmit = findViewById(R.id.btn_submit);
+        this.referWidgets();
 
-        //Cancel button
-        btnCancel = findViewById(R.id.btn_cancel);
+
+        //submit button clicked functionality
+//        btnSubmit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                //error check method
+//                errorCheck();
+//
+//                //getting input from edit texts
+//                String name = edtName.getText().toString();
+//                String email = edtEmail.getText().toString();
+//                String phone = edtPhone.getText().toString();
+//
+//                //toast message to output users inputs
+//                Toast.makeText(MainActivity.this, "Please verify your details." + "\nRecommendations: " + "....." + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.", Toast.LENGTH_LONG).show();
+//
+//            }
+//
+//
+//        });
+
+
+
+        //cancel button clicked functionality
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                //clear all edit texts
+//                edtName.getText().clear();
+//                edtEmail.getText().clear();
+//                edtPhone.getText().clear();
+//
+//            }
+//        });
+
+
+
+
+
+    }
+
+    private void referWidgets() {
 
         //Edit Texts
         edtName = findViewById(R.id.edt_name);
@@ -46,11 +89,6 @@ public class MainActivity extends AppCompatActivity {
         //RadioGroup
         rdoApp = findViewById(R.id.rdo_app);
 
-        //Radio Buttons
-        rdoYes = findViewById(R.id.rdo_yes);
-        rdoNo = findViewById(R.id.rdo_no);
-        rdoMaybe = findViewById(R.id.rdo_maybe);
-
         //Checkboxes
         chkGuitar = findViewById(R.id.chk_guitar);
         chkFootball = findViewById(R.id.chk_football);
@@ -59,97 +97,76 @@ public class MainActivity extends AppCompatActivity {
         chkHorseRiding = findViewById(R.id.chk_horse_riding);
         chkReading = findViewById(R.id.chk_reading);
 
-        //submit button clicked functionality
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        //Spinner
+        spnNewsletter = findViewById(R.id.spn_newsletter);
 
-                //error check method
-                errorCheck();
+        ArrayAdapter<CharSequence> dayAdapter =
+                ArrayAdapter.createFromResource(this, R.array.newsletter_array,
+                        android.R.layout.simple_spinner_dropdown_item);
 
-                //calling radio buttons when clicked
-                rdoYes = findViewById(rdoApp.getCheckedRadioButtonId());
-                rdoNo = findViewById(rdoApp.getCheckedRadioButtonId());
-                rdoMaybe = findViewById(rdoApp.getCheckedRadioButtonId());
+        spnNewsletter.setAdapter(dayAdapter);
 
-                //getting input from edit texts
-                String name = edtName.getText().toString();
-                String email = edtEmail.getText().toString();
-                String phone = edtPhone.getText().toString();
+        //Submit button
+        btnSubmit = findViewById(R.id.btn_submit);
+        btnSubmit.setOnClickListener(this);
 
-                //toast message to output users inputs
-                Toast.makeText(MainActivity.this, "Please verify your details." + "\nRecommendations: " + "....." + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.", Toast.LENGTH_LONG).show();
-
-
-                //check box functionality
-//                String selectedHobbies = "";
-//
-//                if (chkGuitar.isChecked()) {
-//                    selectedHobbies += chkGuitar.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkGuitar.getText().toString() + "\n";
-//                }
-//
-//                if (chkFootball.isChecked()) {
-//                    selectedHobbies += chkFootball.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkFootball.getText().toString() + "\n";
-//                }
-//
-//                if (chkSinging.isChecked()) {
-//                    selectedHobbies += chkSinging.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkSinging.getText().toString() + "\n";
-//                }
-//
-//                if (chkChess.isChecked()) {
-//                    selectedHobbies += chkChess.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkChess.getText().toString() + "\n";
-//                }
-//
-//                if (chkHorseRiding.isChecked()) {
-//                    selectedHobbies += chkHorseRiding.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkHorseRiding.getText().toString() + "\n";
-//                }
-//
-//                if (chkReading.isChecked()) {
-//                    selectedHobbies += chkReading.getText().toString() + "\n";
-//                }
-//                else{
-//                    selectedHobbies += chkReading.getText().toString() + "\n";
-//                }
-
-                // display it as Toast to the user
-
-                //Toast.makeText(MainActivity.this, "Please verify your details" + "\n Recommendation: " + yes + no +  maybe +"\n CheckBox Choices: \n "+ selectedHobbies , Toast.LENGTH_LONG).show();
-
-
-            }
-
-
-        });
-
-        //cancel button clicked functionality
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //clear all edit texts
-                edtName.getText().clear();
-                edtEmail.getText().clear();
-                edtPhone.getText().clear();
-
-            }
-        });
+        //Cancel button
+        btnCancel = findViewById(R.id.btn_cancel);
+        btnCancel.setOnClickListener(this);
 
     }
+
+    @Override
+    public void onClick (View v){
+        switch (v.getId()){
+            case R.id.btn_cancel:
+                break;
+            this.finishAffinity();
+
+
+            case R.id.btn_submit:
+                break;
+            this.getValues();
+            this.errorCheck();
+
+        }
+
+    }
+
+    private void getValues() {
+
+        //getting input from edit texts
+        String name = edtName.getText().toString();
+        String email = edtEmail.getText().toString();
+        String phone = edtPhone.getText().toString();
+
+
+        //check box functionality
+        String selectedHobbies = "";
+
+        if (chkGuitar.isChecked()) {
+            selectedHobbies += " Guitar \n ";
+        }
+        if (chkFootball.isChecked()) {
+            selectedHobbies += " Football \n ";
+        }
+        if (chkSinging.isChecked()) {
+            selectedHobbies += " Singing \n ";
+        }
+        if (chkChess.isChecked()) {
+            selectedHobbies += " Chess \n ";
+        }
+        if (chkHorseRiding.isChecked()) {
+            selectedHobbies += " Horse Riding \n ";
+        }
+        if (chkReading.isChecked()) {
+            selectedHobbies += " Reading \n ";
+        }
+
+    }
+
+
+
 
     //error check if users does not input name, email, or phone number
     private boolean errorCheck() {
