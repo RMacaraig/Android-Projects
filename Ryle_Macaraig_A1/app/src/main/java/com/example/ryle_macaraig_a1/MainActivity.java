@@ -18,7 +18,7 @@ import android.widget.Toast;
  */
 
 //implements View.OnClickListener
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //variables to call all objects
     Button btnSubmit, btnCancel;
@@ -35,48 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         this.referWidgets();
-
-
-        //submit button clicked functionality
-//        btnSubmit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                //error check method
-//                errorCheck();
-//
-//                //getting input from edit texts
-//                String name = edtName.getText().toString();
-//                String email = edtEmail.getText().toString();
-//                String phone = edtPhone.getText().toString();
-//
-//                //toast message to output users inputs
-//                Toast.makeText(MainActivity.this, "Please verify your details." + "\nRecommendations: " + "....." + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.", Toast.LENGTH_LONG).show();
-//
-//            }
-//
-//
-//        });
-
-
-
-        //cancel button clicked functionality
-//        btnCancel.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                //clear all edit texts
-//                edtName.getText().clear();
-//                edtEmail.getText().clear();
-//                edtPhone.getText().clear();
-//
-//            }
-//        });
-
-
-
-
-
     }
 
     private void referWidgets() {
@@ -117,18 +75,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick (View v){
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btn_cancel:
+                this.finishAffinity();
                 break;
-            this.finishAffinity();
-
 
             case R.id.btn_submit:
-                break;
-            this.getValues();
-            this.errorCheck();
 
+                this.getValues();
+                this.errorCheck();
+                break;
         }
 
     }
@@ -140,33 +97,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String email = edtEmail.getText().toString();
         String phone = edtPhone.getText().toString();
 
+        //getting of radio button that is selected
+        rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
+        String stuff = rdoSelected.getText().toString();
+
 
         //check box functionality
         String selectedHobbies = "";
 
         if (chkGuitar.isChecked()) {
-            selectedHobbies += " Guitar \n ";
+            selectedHobbies += "\nGuitar";
         }
         if (chkFootball.isChecked()) {
-            selectedHobbies += " Football \n ";
+            selectedHobbies += "\nFootball";
         }
         if (chkSinging.isChecked()) {
-            selectedHobbies += " Singing \n ";
+            selectedHobbies += "\nSinging";
         }
         if (chkChess.isChecked()) {
-            selectedHobbies += " Chess \n ";
+            selectedHobbies += "\nChess";
         }
         if (chkHorseRiding.isChecked()) {
-            selectedHobbies += " Horse Riding \n ";
+            selectedHobbies += "\nHorse Riding";
         }
         if (chkReading.isChecked()) {
-            selectedHobbies += " Reading \n ";
+            selectedHobbies += "\nReading";
         }
 
+        String newsletter = spnNewsletter.getSelectedItem().toString();
+
+        String output = "Please verify your details." + "\nRecommendation : " + " " + stuff + "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
+
+        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
+
     }
-
-
-
 
     //error check if users does not input name, email, or phone number
     private boolean errorCheck() {
