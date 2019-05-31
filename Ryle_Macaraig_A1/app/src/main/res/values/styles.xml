@@ -1,5 +1,10 @@
 <resources>
 
+    <!--
+ Created by 991435278: Ryle Cheyene Macaraig
+ on 2019-05-28.
+    -->
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

@@ -17,29 +17,30 @@ import android.widget.Toast;
  * on 2019-05-28.
  */
 
-//implements View.OnClickListener
+//implements View.OnClickListener is used to call submit and cancel buttons
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //variables to call all objects
+    //class global variables initialized
     Button btnSubmit, btnCancel;
     EditText edtName, edtEmail, edtPhone;
     RadioGroup rdoApp;
-    RadioButton rdoSelected;
+    RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //refer to UI views
         this.referWidgets();
     }
 
+    //method used to call UI views
     private void referWidgets() {
 
-        //Edit Texts
+        //EditTexts
         edtName = findViewById(R.id.edt_name);
         edtEmail = findViewById(R.id.edt_email);
         edtPhone = findViewById(R.id.edt_phone);
@@ -58,51 +59,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Spinner
         spnNewsletter = findViewById(R.id.spn_newsletter);
 
+        //calling string array from spinner
+        //creating object of array adapter class for the character sequence type
+        //createFromResource is used to create object and specify context of current activity
         ArrayAdapter<CharSequence> dayAdapter =
                 ArrayAdapter.createFromResource(this, R.array.newsletter_array,
                         android.R.layout.simple_spinner_dropdown_item);
 
+        //calling spinner array
         spnNewsletter.setAdapter(dayAdapter);
 
-        //Submit button
+        //submit button on click
         btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
 
-        //Cancel button
+        //cancel button on click
         btnCancel = findViewById(R.id.btn_cancel);
         btnCancel.setOnClickListener(this);
 
     }
 
+    //onClick method used when submit and cancel buttons are clicked
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btn_cancel:
-                this.finishAffinity();
+            case R.id.btn_cancel: //cancel button
+                this.finishAffinity(); //method used to terminate app
                 break;
 
-            case R.id.btn_submit:
-
-                this.getValues();
-                this.errorCheck();
+            case R.id.btn_submit: //submit button
+                this.getValues(); //method used to get values
+                this.errorCheck(); //method used for error checking
                 break;
         }
 
     }
 
+    //get values method used when submit button is clicked
     private void getValues() {
 
-        //getting input from edit texts
+        //retrieve name, email, and phone of user
         String name = edtName.getText().toString();
         String email = edtEmail.getText().toString();
         String phone = edtPhone.getText().toString();
 
-        //getting of radio button that is selected
+        //getting a radio button that is selected
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
-        String stuff = rdoSelected.getText().toString();
+        String app = rdoSelected.getText().toString();
 
-
-        //check box functionality
+        //check box functionality when clicked
+        //users can have multiple check boxes clicked
         String selectedHobbies = "";
 
         if (chkGuitar.isChecked()) {
@@ -124,22 +130,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             selectedHobbies += "\nReading";
         }
 
+        //get spinner output
         String newsletter = spnNewsletter.getSelectedItem().toString();
 
-        String output = "Please verify your details." + "\nRecommendation : " + " " + stuff + "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
+        //creating an output string to summarize users' information
+        String output = "Please verify your details." + "\nRecommendation : " + " " + app +
+                "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter
+                + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
 
+        //toast message for user to see their output
         Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
 
     }
 
     //error check if users does not input name, email, or phone number
+    //(added this method for fun)
     private boolean errorCheck() {
+
+        //editText name when input is empty
         if (edtName.length() == 0) {
             edtName.setError("Name is required");
         }
+
+        //editText email when input is empty
         if (edtEmail.length() == 0) {
             edtEmail.setError("Email is required");
         }
+
+        //editText phone when input is empty
         if (edtPhone.length() == 0) {
             edtPhone.setError("Phone number is required");
         }
