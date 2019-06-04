@@ -38,8 +38,20 @@
         <item>Never</item>
     </string-array>
 
+
+    <!--string resources for confirmation activity -->
+    <string name="verify_details">Please verify your details.</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="selected_hobbies">Selected Hobbies</string>
+    <string name="newsletter">Newsletter Frequency</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="credit_score">Credit Score</string>
+
     <!--buttons -->
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
 
 </resources>

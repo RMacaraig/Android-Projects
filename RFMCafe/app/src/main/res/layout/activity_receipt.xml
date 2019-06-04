@@ -11,96 +11,92 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/title"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#009688"
-        android:textStyle="bold|italic"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold|italic" />
 
     <ImageView
         android:id="@+id/img_banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:scaleType="center"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/tv_title"/>
+        app:srcCompat="@drawable/banner" />
 
     <TextView
         android:id="@+id/tv_order"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/img_banner"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
-        android:textSize="18sp"
-        android:layout_below="@+id/img_banner"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"/>
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_orderAmt"
         android:layout_width="190dp"
         android:layout_height="60dp"
+        android:layout_below="@+id/tv_order"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center_vertical"
         android:text="@string/order_amt"
-        android:textSize="18sp"
-        android:layout_below="@+id/tv_order"
-        android:layout_alignParentStart="true"/>
-        <!--no end since there will be another text view beside it -->
-
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_amount"
         android:layout_width="190dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/tv_orderAmt"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="-62dp"
+        android:layout_below="@+id/tv_order"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_toEndOf="@+id/tv_orderAmt"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:text="$0.0"
-        android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="32dp" />
 
     <Button
         android:id="@+id/btn_done"
         android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/tv_amount"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_amount"
         android:text="@string/done" />
 
     <Button
         android:id="@+id/btn_another_order"
         android:layout_width="190dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/tv_amount"
-        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="-8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_toEndOf="@+id/btn_done"
         android:text="@string/place_order" />
+
 </RelativeLayout>
