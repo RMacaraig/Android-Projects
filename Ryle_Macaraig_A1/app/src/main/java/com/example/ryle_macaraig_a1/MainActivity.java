@@ -1,5 +1,6 @@
 package com.example.ryle_macaraig_a1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
+
+    String recommendation = "";
+    String hobbies = "";
+    String newsletterFreq = "";
+    String nameUser = "";
+    String emailUser = "";
+    String number = "";
+
+    Double yesScore = 0.0;
+    Double noScore = 0.0;
+    Double maybeScore = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btn_submit: //submit button
                 this.getValues(); //method used to get values
+                this.openNextActivity(); //create method to open next activity
                 this.errorCheck(); //method used for error checking
                 break;
         }
@@ -106,6 +119,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //getting a radio button that is selected
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
         String app = rdoSelected.getText().toString();
+
+        this.calculateYes();
+        this.calculateNo();
+        this.calculateMaybe();
 
         //check box functionality when clicked
         //users can have multiple check boxes clicked
@@ -134,14 +151,72 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String newsletter = spnNewsletter.getSelectedItem().toString();
 
         //creating an output string to summarize users' information
-        String output = "Please verify your details." + "\nRecommendation : " + " " + app +
-                "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter
-                + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
+//        output = "Please verify your details." + "\nRecommendation : " + " " + app +
+//                "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter
+//                + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
+//
+
+        recommendation = app;
+        hobbies = selectedHobbies;
+        newsletterFreq = newsletter;
+        nameUser = name;
+        emailUser = email;
+        number = phone;
 
         //toast message for user to see their output
-        Toast.makeText(getApplicationContext(), output, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getApplicationContext(),
+//                recommendation,
+//                hobbies,
+//                newsletterFreq,
+//                nameUser,
+//                emailUser,
+//                number,
+//                Toast.LENGTH_LONG).show();
 
     }
+
+    private void calculateYes() {
+
+        switch (rdoSelected.getId()){
+            case R.id.spn_newsletter:
+                yesScore += 10.0;
+                break;
+        }
+
+    }
+
+    private void calculateNo() {
+
+
+    }
+
+    private void calculateMaybe() {
+
+
+    }
+
+
+    private void openNextActivity() {
+
+        Intent confirmationIntent = new Intent (this, ConfirmationActivity.class);
+
+        confirmationIntent.putExtra("EXTRA_RECOMMENDATION", recommendation);
+        confirmationIntent.putExtra("EXTRA_HOBBIES", hobbies);
+        confirmationIntent.putExtra("EXTRA_NEWSLETTER", newsletterFreq);
+        confirmationIntent.putExtra("EXTRA_NAME", nameUser);
+        confirmationIntent.putExtra("EXTRA_EMAIL", emailUser);
+        confirmationIntent.putExtra("EXTRA_NUMBER", number);
+
+        confirmationIntent.putExtra("EXTRA_YES_SCORE", yesScore);
+        confirmationIntent.putExtra("EXTRA_NO_SCORE", noScore);
+        confirmationIntent.putExtra("EXTRA_MAYBE_SCORE", maybeScore);
+
+        startActivity(confirmationIntent);
+    }
+
+
+
+
 
     //error check if users does not input name, email, or phone number
     //(added this method for fun)

@@ -7,6 +7,11 @@
     android:orientation="vertical"
     tools:context=".ConfirmationActivity">
 
+    <!--
+Created by 991435278: Ryle Cheyene Macaraig
+on 2019-06-04.
+    -->
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -20,7 +25,7 @@
         android:text="@string/title"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="32sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
@@ -34,171 +39,171 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/verify_details"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_recommendation"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:id="@+id/tv_user_recommendation"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
         android:layout_below="@id/tv_verify"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/recommendation"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_recommendation"
+        android:id="@+id/tv_recommendation"
         android:layout_width="190dp"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_verify"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@id/tv_recommendation"
+        android:layout_toEndOf="@id/tv_user_recommendation"
         android:text="Yes"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_selected_hobbies"
-        android:layout_width="200dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/tv_recommendation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_user_recommendation"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/selected_hobbies"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_hobbies"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:id="@+id/tv_hobbies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tv_selected_hobbies"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Guitar"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_newsletter"
-        android:layout_width="250dp"
+        android:id="@+id/tv_newsletter_freq"
+        android:layout_width="185dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_hobbies"
+        android:layout_below="@+id/tv_hobbies"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/newsletter"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_newsletter"
+        android:id="@+id/tv_newsletter"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_hobbies"
+        android:layout_below="@+id/tv_hobbies"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_newsletter"
+        android:layout_toEndOf="@+id/tv_newsletter_freq"
         android:text="Weekly"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_newsletter"
+        android:id="@+id/tv_user_name"
+        android:layout_width="58dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/tv_newsletter"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/name"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_name"
+        android:id="@+id/tv_name"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_newsletter"
+        android:layout_below="@+id/tv_newsletter"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_name"
+        android:layout_toEndOf="@+id/tv_user_name"
         android:text="JK"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_name"
+        android:id="@+id/tv_user_email"
+        android:layout_width="58dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/tv_name"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/email"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_email"
+        android:id="@+id/tv_email"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_name"
+        android:layout_below="@+id/tv_name"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_name"
+        android:layout_toEndOf="@+id/tv_user_name"
         android:text="JK@sh.ca"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_number"
-        android:layout_width="170dp"
+        android:id="@+id/tv_phone_number"
+        android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_email"
+        android:layout_below="@+id/tv_email"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/phone_number"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_number"
+        android:id="@+id/tv_number"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/tv_user_email"
-        android:layout_marginStart="8dp"
+        android:layout_below="@+id/tv_email"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_number"
+        android:layout_toEndOf="@+id/tv_phone_number"
         android:text="123456"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_thanks"
         android:layout_width="500dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/tv_number"
+        android:layout_height="40dp"
+        android:layout_below="@+id/tv_phone_number"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Thank you for your feedback"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
 
     <TextView
-        android:id="@+id/tv_score"
+        android:id="@+id/tv_credit_score"
         android:layout_width="190dp"
         android:layout_height="60dp"
         android:layout_below="@+id/tv_thanks"
@@ -207,21 +212,21 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/credit_score"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/tv_user_score"
+        android:id="@+id/tv_score"
         android:layout_width="190dp"
         android:layout_height="60dp"
         android:layout_below="@+id/tv_thanks"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_toEndOf="@+id/tv_score"
+        android:layout_toEndOf="@+id/tv_credit_score"
         android:text="15"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="32sp" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btn_done"
