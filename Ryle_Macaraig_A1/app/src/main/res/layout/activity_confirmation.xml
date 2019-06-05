@@ -55,7 +55,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_recommendation"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_verify"
         android:layout_marginStart="8dp"
@@ -103,7 +103,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_newsletter"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_hobbies"
         android:layout_marginStart="8dp"
@@ -128,7 +128,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_newsletter"
         android:layout_marginStart="8dp"
@@ -153,7 +153,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_email"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_name"
         android:layout_marginStart="8dp"
@@ -178,7 +178,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_number"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_email"
         android:layout_marginStart="18dp"
@@ -191,7 +191,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_thanks"
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@+id/tv_phone_number"
         android:layout_marginStart="8dp"
@@ -216,7 +216,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_score"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@+id/tv_thanks"
         android:layout_marginStart="8dp"

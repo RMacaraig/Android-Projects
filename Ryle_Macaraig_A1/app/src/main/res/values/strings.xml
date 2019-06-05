@@ -5,7 +5,7 @@
 
 <resources>
     <!-- app title -->
-    <string name="app_name">FeedbackApp</string>
+    <string name="app_name" translatable="false">FeedbackApp</string>
 
     <!--text views -->
     <string name="title">We value your feedback</string>

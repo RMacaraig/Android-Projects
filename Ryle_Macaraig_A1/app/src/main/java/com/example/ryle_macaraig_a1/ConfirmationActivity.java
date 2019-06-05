@@ -90,6 +90,10 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
             case R.id.btn_done:
                 this.finishAffinity(); //stop activity from running -hidden and terminated
                 break;
+
+                //R.string.no
+            //tvName = getString(R.string.no);
+
         }
     }
 
