@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cancel">" Annuler"</string>
+    <string name="cancel">Annuler</string>
     <string name="cream">Crème</string>
     <string name="dark_roast">Torréfaction foncée</string>
     <string name="dom_lid">" Couvercle Dom"</string>

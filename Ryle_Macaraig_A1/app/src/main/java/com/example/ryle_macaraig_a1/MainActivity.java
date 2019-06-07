@@ -24,10 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //class global variables initialized
     Button btnSubmit, btnCancel;
     EditText edtName, edtEmail, edtPhone;
-    RadioGroup rdoApp;
-    RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
+    //RadioGroup rdoApp;
+    //RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
+
+    RadioButton rdoYes, rdoNo, rdoMaybe;
+
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
+
 
     String recommendation = "";
     String hobbies = "";
@@ -58,7 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtPhone = findViewById(R.id.edt_phone);
 
         //RadioGroup
-        rdoApp = findViewById(R.id.rdo_app);
+       // rdoApp = findViewById(R.id.rdo_app);
+
+        //RadioButton
+        rdoYes = findViewById(R.id.rdo_yes);
+        rdoNo = findViewById(R.id.rdo_no);
+        rdoMaybe = findViewById(R.id.rdo_maybe);
+
 
         //Checkboxes
         chkGuitar = findViewById(R.id.chk_guitar);
@@ -117,8 +127,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String phone = edtPhone.getText().toString();
 
         //getting a radio button that is selected
-        rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
-        String app = rdoSelected.getText().toString();
+       // rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
+       // String app = rdoSelected.getText().toString();
+
+
+        String app = "";
+        if (rdoYes.isChecked()) {
+
+            app +=  getResources().getString(R.string.yes) ;
+
+
+        }
+
+
+        if (rdoNo.isChecked()) {
+
+            app +=  getResources().getString(R.string.no) ;
+
+
+        }
+
+        if (rdoMaybe.isChecked()) {
+
+            app +=  getResources().getString(R.string.maybe) ;
+
+
+        }
+
+
+
+
+
+
+
+
 
         this.calculateYes();
         this.calculateNo();
@@ -127,34 +169,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //check box functionality when clicked
         //users can have multiple check boxes clicked
         String selectedHobbies = "";
-
         if (chkGuitar.isChecked()) {
-            selectedHobbies += "\nGuitar";
+
+            selectedHobbies +=  getResources().getString(R.string.guitar) ;
+            selectedHobbies = selectedHobbies + "\n";
+
         }
         if (chkFootball.isChecked()) {
-            selectedHobbies += "\nFootball";
+
+            selectedHobbies += getResources().getString(R.string.football) ;
+            selectedHobbies = selectedHobbies + "\n";
         }
         if (chkSinging.isChecked()) {
-            selectedHobbies += "\nSinging";
+
+            selectedHobbies += getResources().getString(R.string.singing) ;
+            selectedHobbies = selectedHobbies + "\n";
         }
         if (chkChess.isChecked()) {
-            selectedHobbies += "\nChess";
+
+            selectedHobbies += getResources().getString(R.string.chess) ;
+            selectedHobbies = selectedHobbies + "\n";
+
         }
         if (chkHorseRiding.isChecked()) {
-            selectedHobbies += "\nHorse Riding";
+
+            selectedHobbies += getResources().getString(R.string.horse_riding) ;
+            selectedHobbies = selectedHobbies + "\n";
+
         }
         if (chkReading.isChecked()) {
-            selectedHobbies += "\nReading";
+
+            selectedHobbies += getResources().getString(R.string.reading) ;
+            selectedHobbies = selectedHobbies + "\n";
+
         }
 
-        //get spinner output
+            //get spinner output
         String newsletter = spnNewsletter.getSelectedItem().toString();
-
-        //creating an output string to summarize users' information
-//        output = "Please verify your details." + "\nRecommendation : " + " " + app +
-//                "\nSelected hobbies : \n" + selectedHobbies + "\nNewsletter frequency : " + newsletter
-//                + "\nName : " + name + "\nEmail : " + email + " \nPhone : " + phone + "\nThanks for the feedback.";
-//
 
         recommendation = app;
         hobbies = selectedHobbies;
@@ -163,24 +214,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         emailUser = email;
         number = phone;
 
-        //toast message for user to see their output
-//        Toast.makeText(getApplicationContext(),
-//                recommendation,
-//                hobbies,
-//                newsletterFreq,
-//                nameUser,
-//                emailUser,
-//                number,
-//                Toast.LENGTH_LONG).show();
-
     }
 
     private void calculateYes() {
 
-        switch (rdoSelected.getId()){
-            case R.id.spn_newsletter:
+        switch (rdoYes.getId()){
+            case R.string.daily:
+                yesScore += 20.0;
+                break;
+
+            case R.string.weekly:
+                yesScore += 15.0;
+                break;
+
+            case R.string.monthly:
                 yesScore += 10.0;
                 break;
+
         }
 
     }
@@ -188,11 +238,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void calculateNo() {
 
 
+        switch (rdoNo.getId()) {
+            case R.string.daily:
+                noScore += 05;
+                break;
+
+            case R.string.weekly:
+                noScore += 0;
+                break;
+
+            case R.string.monthly:
+                noScore += 0;
+                break;
+
+        }
+
     }
 
     private void calculateMaybe() {
 
+            switch (rdoNo.getId()) {
+                case R.string.daily:
+                    maybeScore += 05;
+                    break;
 
+                case R.string.weekly:
+                    maybeScore += 0;
+                    break;
+
+                case R.string.monthly:
+                    maybeScore += 0;
+                    break;
+
+            }
     }
 
 

@@ -9,15 +9,24 @@
 
     <!--text views -->
     <string name="title">We value your feedback</string>
-    <string name="prompt_app">Would you like to recommend this app to a friends?</string>
+
+    <string name="title_eng" translatable="false">We value your feedback</string>
+
+    <string name="prompt_app" translatable="false">Would you like to recommend this app to a friends?</string>
 
     <!--radio buttons -->
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="maybe">Maybe</string>
 
+
+    <!--eng radio buttons -->
+    <string name="yes_eng" translatable="false">Yes</string>
+    <string name="no_eng" translatable="false">No</string>
+    <string name="maybe_eng" translatable="false">Maybe</string>
+
     <!--text view -->
-    <string name="prompt_hobbies">Please select your hobbies.</string>
+    <string name="prompt_hobbies" translatable="false">Please select your hobbies.</string>
 
     <!--check boxes -->
     <string name="guitar">Guitar</string>
@@ -27,17 +36,53 @@
     <string name="horse_riding">Horse Riding</string>
     <string name="reading">Reading</string>
 
-    <!--text view -->
-    <string name="prompt_newsletter">Please select the frequency of newsletter.</string>
 
-    <!--spinner array (dropdown) -->
+    <!--eng check boxes  -->
+    <string name="guitar_eng" translatable="false">Guitar</string>
+    <string name="football_eng" translatable="false">Football</string>
+    <string name="singing_eng" translatable="false">Singing</string>
+    <string name="chess_eng" translatable="false">Chess</string>
+    <string name="horse_riding_eng" translatable="false">Horse Riding</string>
+    <string name="reading_eng" translatable="false">Reading</string>
+
+
+
+    <!--text view -->
+    <string name="prompt_newsletter" translatable="false">Please select the frequency of newsletter.</string>
+
+    <!--spinner array (dropdown)
     <string-array name="newsletter_array">
         <item>Daily</item>
         <item>Weekly</item>
         <item>Monthly</item>
         <item>Never</item>
     </string-array>
+    -->
 
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="never">Never</string>
+
+    <string-array name="newsletter_array">
+        <item>@string/daily</item>
+        <item>@string/weekly</item>
+        <item>@string/monthly</item>
+        <item>@string/never</item>
+    </string-array>
+
+
+    <string name="daily_eng" translatable="false">Daily</string>
+    <string name="weekly_eng" translatable="false">Weekly</string>
+    <string name="monthly_eng" translatable="false">Monthly</string>
+    <string name="never_eng" translatable="false">Never</string>
+
+    <string-array name="newsletter_array_eng">
+        <item>@string/daily_eng</item>
+        <item>@string/weekly_eng</item>
+        <item>@string/monthly_eng</item>
+        <item>@string/never_eng</item>
+    </string-array>
 
     <!--string resources for confirmation activity -->
     <string name="verify_details">Please verify your details.</string>
@@ -48,10 +93,11 @@
     <string name="email">Email</string>
     <string name="phone_number">Phone Number</string>
     <string name="credit_score">Credit Score</string>
+    <string name="thanks">Thank you for your feedback</string>
 
     <!--buttons -->
-    <string name="submit">Submit</string>
-    <string name="cancel">Cancel</string>
+    <string name="submit" translatable="false">Submit</string>
+    <string name="cancel" translatable="false">Cancel</string>
     <string name="done">Done</string>
 
 </resources>

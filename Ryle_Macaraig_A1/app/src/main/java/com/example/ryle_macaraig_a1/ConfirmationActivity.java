@@ -56,6 +56,12 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
         String recommendation = currentIntent.getStringExtra("EXTRA_RECOMMENDATION"); //retrieve the string used
         tvRecommendation.setText(recommendation);
 
+        //String recommendationNo = currentIntent.getStringExtra("EXTRA_RECOMMENDATION_NO"); //retrieve the string used
+        //tvRecommendation.setText(recommendationNo);
+
+
+
+
         String hobbies = currentIntent.getStringExtra("EXTRA_HOBBIES"); //retrieve the string used
         tvHobbies.setText(hobbies);
 
@@ -72,7 +78,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
         tvNumber.setText(number);
 
         Double yesScore = currentIntent.getDoubleExtra("EXTRA_YES_SCORE",0.0);
-        tvScore.setText(yesScore.toString());
+        tvScore.setText("$" + yesScore.toString());
 
         Double noScore = currentIntent.getDoubleExtra("EXTRA_NO_SCORE",0.0);
         tvScore.setText(noScore.toString());
@@ -93,6 +99,7 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
                 //R.string.no
             //tvName = getString(R.string.no);
+
 
         }
     }
