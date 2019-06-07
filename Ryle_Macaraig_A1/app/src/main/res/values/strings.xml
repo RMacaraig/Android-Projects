@@ -71,7 +71,7 @@
         <item>@string/never</item>
     </string-array>
 
-
+<!-- -->
     <string name="daily_eng" translatable="false">Daily</string>
     <string name="weekly_eng" translatable="false">Weekly</string>
     <string name="monthly_eng" translatable="false">Monthly</string>
@@ -83,6 +83,8 @@
         <item>@string/monthly_eng</item>
         <item>@string/never_eng</item>
     </string-array>
+
+
 
     <!--string resources for confirmation activity -->
     <string name="verify_details">Please verify your details.</string>

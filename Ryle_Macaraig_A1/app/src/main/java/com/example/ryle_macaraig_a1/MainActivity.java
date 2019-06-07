@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 /**
  * Created by 991435278: Ryle Cheyene Macaraig
@@ -24,25 +23,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //class global variables initialized
     Button btnSubmit, btnCancel;
     EditText edtName, edtEmail, edtPhone;
-    //RadioGroup rdoApp;
-    //RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
+    RadioGroup rdoApp;
+    RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
 
     RadioButton rdoYes, rdoNo, rdoMaybe;
 
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
 
+    String newsletterYes = "";
+    String newsletterNo = "";
+    String newsletterMaybe = "";
 
     String recommendation = "";
     String hobbies = "";
-    String newsletterFreq = "";
     String nameUser = "";
     String emailUser = "";
     String number = "";
 
-    Double yesScore = 0.0;
-    Double noScore = 0.0;
-    Double maybeScore = 0.0;
+    Integer creditScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         edtPhone = findViewById(R.id.edt_phone);
 
         //RadioGroup
-       // rdoApp = findViewById(R.id.rdo_app);
+        rdoApp = findViewById(R.id.rdo_app);
 
         //RadioButton
         rdoYes = findViewById(R.id.rdo_yes);
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //creating object of array adapter class for the character sequence type
         //createFromResource is used to create object and specify context of current activity
         ArrayAdapter<CharSequence> dayAdapter =
-                ArrayAdapter.createFromResource(this, R.array.newsletter_array,
+                ArrayAdapter.createFromResource(this, R.array.newsletter_array_eng,
                         android.R.layout.simple_spinner_dropdown_item);
 
         //calling spinner array
@@ -127,188 +126,160 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String phone = edtPhone.getText().toString();
 
         //getting a radio button that is selected
-       // rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
-       // String app = rdoSelected.getText().toString();
-
+        rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
+        //String app = rdoSelected.getText().toString();
 
         String app = "";
+        String newsYes = "";
         if (rdoYes.isChecked()) {
 
-            app +=  getResources().getString(R.string.yes) ;
+            app = rdoYes.getResources().getString(R.string.yes);
 
+            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+
+                newsYes += getResources().getString(R.string.daily);
+                creditScore += 20;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+
+                newsYes += getResources().getString(R.string.weekly);
+                creditScore += 15;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+
+                newsYes += getResources().getString(R.string.monthly);
+                creditScore += 10;
+            }
+            if (spnNewsletter.getSelectedItem().equals("Never")) {
+
+                newsYes += getResources().getString(R.string.never);
+                creditScore += 0;
+            }
 
         }
 
-
+        String newsNo = "";
         if (rdoNo.isChecked()) {
 
-            app +=  getResources().getString(R.string.no) ;
+            app = rdoNo.getResources().getString(R.string.no);
 
+            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+                newsNo += getResources().getString(R.string.daily);
+                creditScore += 05;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+                newsNo += getResources().getString(R.string.weekly);
+                creditScore += 0;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+                newsNo += getResources().getString(R.string.monthly);
+                creditScore += 0;
+            }
+            if (spnNewsletter.getSelectedItem().equals("Never")) {
+                newsNo += getResources().getString(R.string.never);
+                creditScore += 0;
+            }
 
         }
 
+        String newsMaybe = "";
         if (rdoMaybe.isChecked()) {
 
-            app +=  getResources().getString(R.string.maybe) ;
+            app = rdoMaybe.getResources().getString(R.string.maybe);
 
+            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+                newsMaybe += getResources().getString(R.string.daily);
+                creditScore += 05;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+                newsMaybe += getResources().getString(R.string.weekly);
+                creditScore += 02;
+            }
+
+            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+                newsMaybe += getResources().getString(R.string.monthly);
+                creditScore += 0;
+            }
+            if (spnNewsletter.getSelectedItem().equals("Never")) {
+                newsMaybe += getResources().getString(R.string.never);
+                creditScore += 0;
+            }
 
         }
-
-
-
-
-
-
-
-
-
-        this.calculateYes();
-        this.calculateNo();
-        this.calculateMaybe();
 
         //check box functionality when clicked
         //users can have multiple check boxes clicked
         String selectedHobbies = "";
         if (chkGuitar.isChecked()) {
 
-            selectedHobbies +=  getResources().getString(R.string.guitar) ;
+            selectedHobbies += getResources().getString(R.string.guitar);
             selectedHobbies = selectedHobbies + "\n";
 
         }
         if (chkFootball.isChecked()) {
 
-            selectedHobbies += getResources().getString(R.string.football) ;
+            selectedHobbies += getResources().getString(R.string.football);
             selectedHobbies = selectedHobbies + "\n";
         }
         if (chkSinging.isChecked()) {
 
-            selectedHobbies += getResources().getString(R.string.singing) ;
+            selectedHobbies += getResources().getString(R.string.singing);
             selectedHobbies = selectedHobbies + "\n";
         }
         if (chkChess.isChecked()) {
 
-            selectedHobbies += getResources().getString(R.string.chess) ;
+            selectedHobbies += getResources().getString(R.string.chess);
             selectedHobbies = selectedHobbies + "\n";
 
         }
         if (chkHorseRiding.isChecked()) {
 
-            selectedHobbies += getResources().getString(R.string.horse_riding) ;
+            selectedHobbies += getResources().getString(R.string.horse_riding);
             selectedHobbies = selectedHobbies + "\n";
 
         }
         if (chkReading.isChecked()) {
 
-            selectedHobbies += getResources().getString(R.string.reading) ;
+            selectedHobbies += getResources().getString(R.string.reading);
             selectedHobbies = selectedHobbies + "\n";
 
         }
 
-            //get spinner output
-        String newsletter = spnNewsletter.getSelectedItem().toString();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //get spinner output
+        //String newsletter = spnNewsletter.getSelectedItem().toString();
         recommendation = app;
         hobbies = selectedHobbies;
-        newsletterFreq = newsletter;
+        newsletterYes = newsYes;
+        newsletterNo = newsNo;
+        newsletterMaybe = newsMaybe;
         nameUser = name;
         emailUser = email;
         number = phone;
-
     }
-
-    private void calculateYes() {
-
-        switch (rdoYes.getId()){
-            case R.string.daily:
-                yesScore += 20.0;
-                break;
-
-            case R.string.weekly:
-                yesScore += 15.0;
-                break;
-
-            case R.string.monthly:
-                yesScore += 10.0;
-                break;
-
-        }
-
-    }
-
-    private void calculateNo() {
-
-
-        switch (rdoNo.getId()) {
-            case R.string.daily:
-                noScore += 05;
-                break;
-
-            case R.string.weekly:
-                noScore += 0;
-                break;
-
-            case R.string.monthly:
-                noScore += 0;
-                break;
-
-        }
-
-    }
-
-    private void calculateMaybe() {
-
-            switch (rdoNo.getId()) {
-                case R.string.daily:
-                    maybeScore += 05;
-                    break;
-
-                case R.string.weekly:
-                    maybeScore += 0;
-                    break;
-
-                case R.string.monthly:
-                    maybeScore += 0;
-                    break;
-
-            }
-    }
-
 
     private void openNextActivity() {
 
-        Intent confirmationIntent = new Intent (this, ConfirmationActivity.class);
+        Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
 
         confirmationIntent.putExtra("EXTRA_RECOMMENDATION", recommendation);
         confirmationIntent.putExtra("EXTRA_HOBBIES", hobbies);
-        confirmationIntent.putExtra("EXTRA_NEWSLETTER", newsletterFreq);
+
+        confirmationIntent.putExtra("EXTRA_NEWSLETTER_YES", newsletterYes);
+        confirmationIntent.putExtra("EXTRA_NEWSLETTER_NO", newsletterNo);
+        confirmationIntent.putExtra("EXTRA_NEWSLETTER_MAYBE", newsletterMaybe);
+
         confirmationIntent.putExtra("EXTRA_NAME", nameUser);
         confirmationIntent.putExtra("EXTRA_EMAIL", emailUser);
         confirmationIntent.putExtra("EXTRA_NUMBER", number);
 
-        confirmationIntent.putExtra("EXTRA_YES_SCORE", yesScore);
-        confirmationIntent.putExtra("EXTRA_NO_SCORE", noScore);
-        confirmationIntent.putExtra("EXTRA_MAYBE_SCORE", maybeScore);
-
+        confirmationIntent.putExtra("EXTRA_CREDIT_SCORE", creditScore);
         startActivity(confirmationIntent);
     }
-
-
-
-
 
     //error check if users does not input name, email, or phone number
     //(added this method for fun)

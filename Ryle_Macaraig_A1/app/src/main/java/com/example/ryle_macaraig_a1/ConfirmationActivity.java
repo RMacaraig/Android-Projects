@@ -47,7 +47,6 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-
     private void fetchExtras() {
 
         //calling current intent class
@@ -56,55 +55,40 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
         String recommendation = currentIntent.getStringExtra("EXTRA_RECOMMENDATION"); //retrieve the string used
         tvRecommendation.setText(recommendation);
 
-        //String recommendationNo = currentIntent.getStringExtra("EXTRA_RECOMMENDATION_NO"); //retrieve the string used
-        //tvRecommendation.setText(recommendationNo);
-
-
-
-
-        String hobbies = currentIntent.getStringExtra("EXTRA_HOBBIES"); //retrieve the string used
+        String hobbies = currentIntent.getStringExtra("EXTRA_HOBBIES");
         tvHobbies.setText(hobbies);
 
-        String newsletterFreq= currentIntent.getStringExtra("EXTRA_NEWSLETTER"); //retrieve the string used
-        tvNewsletter.setText(newsletterFreq);
+        String newsletterYes = currentIntent.getStringExtra("EXTRA_NEWSLETTER_YES");
+        tvNewsletter.setText(newsletterYes);
 
-        String nameUser = currentIntent.getStringExtra("EXTRA_NAME"); //retrieve the string used
+        String newsletterNo = currentIntent.getStringExtra("EXTRA_NEWSLETTER_NO");
+        tvNewsletter.setText(newsletterNo);
+
+        String newsletterMaybe = currentIntent.getStringExtra("EXTRA_NEWSLETTER_MAYBE");
+        tvNewsletter.setText(newsletterMaybe);
+
+        String nameUser = currentIntent.getStringExtra("EXTRA_NAME");
         tvName.setText(nameUser);
 
-        String emailUser = currentIntent.getStringExtra("EXTRA_EMAIL"); //retrieve the string used
+        String emailUser = currentIntent.getStringExtra("EXTRA_EMAIL");
         tvEmail.setText(emailUser);
 
-        String number = currentIntent.getStringExtra("EXTRA_NUMBER"); //retrieve the string used
+        String number = currentIntent.getStringExtra("EXTRA_NUMBER");
         tvNumber.setText(number);
 
-        Double yesScore = currentIntent.getDoubleExtra("EXTRA_YES_SCORE",0.0);
-        tvScore.setText("$" + yesScore.toString());
-
-        Double noScore = currentIntent.getDoubleExtra("EXTRA_NO_SCORE",0.0);
-        tvScore.setText(noScore.toString());
-
-        Double maybeScore = currentIntent.getDoubleExtra("EXTRA_MAYBE_SCORE",0.0);
-        tvScore.setText(maybeScore.toString());
+        Integer creditScore = currentIntent.getIntExtra("EXTRA_CREDIT_SCORE", 0);
+        tvScore.setText(creditScore.toString());
 
     }
-
 
     //method used when button is clicked
     @Override
-    public void onClick(View v){
-        switch (v.getId()){
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btn_done:
                 this.finishAffinity(); //stop activity from running -hidden and terminated
                 break;
-
-                //R.string.no
-            //tvName = getString(R.string.no);
-
-
         }
     }
-
-
-
 
 }
