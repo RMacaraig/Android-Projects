@@ -207,6 +207,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //get spinner output
         String newsletter = spnNewsletter.getSelectedItem().toString();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         recommendation = app;
         hobbies = selectedHobbies;
         newsletterFreq = newsletter;
