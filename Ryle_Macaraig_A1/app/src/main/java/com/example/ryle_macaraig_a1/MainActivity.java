@@ -31,10 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
 
-    String newsletterYes = "";
-    String newsletterNo = "";
-    String newsletterMaybe = "";
-
+    String newsletter = "";
     String recommendation = "";
     String hobbies = "";
     String nameUser = "";
@@ -67,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rdoYes = findViewById(R.id.rdo_yes);
         rdoNo = findViewById(R.id.rdo_no);
         rdoMaybe = findViewById(R.id.rdo_maybe);
-
 
         //Checkboxes
         chkGuitar = findViewById(R.id.chk_guitar);
@@ -127,92 +123,85 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //getting a radio button that is selected
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
-        //String app = rdoSelected.getText().toString();
 
         //initialize radio button yes when clicked and call spinner selected with credit score
-        String app = "";
-        String newsYes = "";
+        String frequency = "";
         if (rdoYes.isChecked()) {
-
-            app = rdoYes.getResources().getString(R.string.yes);
+            recommendation = getResources().getString(R.string.yes);
 
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
 
-                newsYes += getResources().getString(R.string.daily);
+                frequency = getResources().getString(R.string.daily);
                 creditScore += 20;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
 
-                newsYes += getResources().getString(R.string.weekly);
+                frequency = getResources().getString(R.string.weekly);
                 creditScore += 15;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
-                newsYes += getResources().getString(R.string.monthly);
+                frequency = getResources().getString(R.string.monthly);
                 creditScore += 10;
-            }
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
 
-                newsYes += getResources().getString(R.string.never);
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
+
+                frequency = getResources().getString(R.string.never);
                 creditScore += 0;
             }
 
-        }
-
-        //initialize radio button no when clicked and call spinner selected with credit score
-        String newsNo = "";
-        if (rdoNo.isChecked()) {
-
-            app = rdoNo.getResources().getString(R.string.no);
+            //initialize radio button no when clicked and call spinner selected with credit score
+        } else if (rdoNo.isChecked()) {
+            recommendation = getResources().getString(R.string.no);
 
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
-                newsNo += getResources().getString(R.string.daily);
+
+                frequency = getResources().getString(R.string.daily);
                 creditScore += 05;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
-                newsNo += getResources().getString(R.string.weekly);
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
+
+                frequency = getResources().getString(R.string.weekly);
                 creditScore += 0;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
-                newsNo += getResources().getString(R.string.monthly);
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
+
+                frequency = getResources().getString(R.string.monthly);
                 creditScore += 0;
-            }
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
-                newsNo += getResources().getString(R.string.never);
+
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
+
+                frequency = getResources().getString(R.string.never);
                 creditScore += 0;
+
             }
 
-        }
+            //initialize radio button maybe when clicked and call spinner selected with credit score
+        } else if (rdoMaybe.isChecked()) {
 
-        //initialize radio button maybe when clicked and call spinner selected with credit score
-        String newsMaybe = "";
-        if (rdoMaybe.isChecked()) {
-
-            app = rdoMaybe.getResources().getString(R.string.maybe);
+            recommendation = getResources().getString(R.string.maybe);
 
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
-                newsMaybe += getResources().getString(R.string.daily);
-                creditScore += 05;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
-                newsMaybe += getResources().getString(R.string.weekly);
+                frequency = getResources().getString(R.string.daily);
+                creditScore += 05;
+
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
+
+                frequency = getResources().getString(R.string.weekly);
                 creditScore += 02;
-            }
 
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
-                newsMaybe += getResources().getString(R.string.monthly);
-                creditScore += 0;
-            }
-            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
-                newsMaybe += getResources().getString(R.string.never);
-                creditScore += 0;
-            }
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
+                frequency = getResources().getString(R.string.monthly);
+                creditScore += 0;
+
+            } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
+
+                frequency = getResources().getString(R.string.never);
+                creditScore += 0;
+
+            }
         }
 
         //check box functionality when clicked
@@ -253,13 +242,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-        //get spinner output
-        //String newsletter = spnNewsletter.getSelectedItem().toString();
-        recommendation = app;
+        //calling all variables
         hobbies = selectedHobbies;
-        newsletterYes = newsYes;
-        newsletterNo = newsNo;
-        newsletterMaybe = newsMaybe;
+        newsletter = frequency;
         nameUser = name;
         emailUser = email;
         number = phone;
@@ -272,15 +257,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         confirmationIntent.putExtra("EXTRA_RECOMMENDATION", recommendation);
         confirmationIntent.putExtra("EXTRA_HOBBIES", hobbies);
-
-        confirmationIntent.putExtra("EXTRA_NEWSLETTER_YES", newsletterYes);
-        confirmationIntent.putExtra("EXTRA_NEWSLETTER_NO", newsletterNo);
-        confirmationIntent.putExtra("EXTRA_NEWSLETTER_MAYBE", newsletterMaybe);
-
+        confirmationIntent.putExtra("EXTRA_NEWSLETTER", newsletter);
         confirmationIntent.putExtra("EXTRA_NAME", nameUser);
         confirmationIntent.putExtra("EXTRA_EMAIL", emailUser);
         confirmationIntent.putExtra("EXTRA_NUMBER", number);
-
         confirmationIntent.putExtra("EXTRA_CREDIT_SCORE", creditScore);
         startActivity(confirmationIntent);
     }

@@ -58,14 +58,8 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
         String hobbies = currentIntent.getStringExtra("EXTRA_HOBBIES");
         tvHobbies.setText(hobbies);
 
-        String newsletterYes = currentIntent.getStringExtra("EXTRA_NEWSLETTER_YES");
+        String newsletterYes = currentIntent.getStringExtra("EXTRA_NEWSLETTER");
         tvNewsletter.setText(newsletterYes);
-
-        String newsletterNo = currentIntent.getStringExtra("EXTRA_NEWSLETTER_NO");
-        tvNewsletter.setText(newsletterNo);
-
-        String newsletterMaybe = currentIntent.getStringExtra("EXTRA_NEWSLETTER_MAYBE");
-        tvNewsletter.setText(newsletterMaybe);
 
         String nameUser = currentIntent.getStringExtra("EXTRA_NAME");
         tvName.setText(nameUser);
