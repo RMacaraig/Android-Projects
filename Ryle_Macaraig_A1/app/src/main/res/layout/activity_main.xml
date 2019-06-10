@@ -18,7 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/title_eng"
+        android:text="@string/title"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/yes_eng"
+            android:text="@string/yes"
             android:textSize="18sp" />
 
         <RadioButton
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/no_eng"
+            android:text="@string/no"
             android:textSize="18sp" />
 
         <RadioButton
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/maybe_eng"
+            android:text="@string/maybe"
             android:textSize="18sp" />
     </RadioGroup>
 
@@ -98,7 +98,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/guitar_eng"
+        android:text="@string/guitar"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_chess"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/football_eng"
+        android:text="@string/football"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_horse_riding"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/singing_eng"
+        android:text="@string/singing"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/chk_reading"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/chess_eng"
+        android:text="@string/chess"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_guitar"
@@ -150,7 +150,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/horse_riding_eng"
+        android:text="@string/horse_riding"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_football"
@@ -163,7 +163,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/reading_eng"
+        android:text="@string/reading"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chk_singing"
@@ -190,28 +190,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:entries="@array/newsletter_array_eng"
+        android:entries="@array/newsletter_array"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chk_newsletter" />
-
-
-    <!-- english spinner
-    <Spinner
-        android:id="@+id/spn_newsletter_eng"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:entries="@array/newsletter_array_eng"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chk_newsletter" />
-
-    -->
-
-
 
     <EditText
         android:id="@+id/edt_name"

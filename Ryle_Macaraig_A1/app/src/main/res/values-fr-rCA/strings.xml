@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ Created by 991435278: Ryle Cheyene Macaraig
+ on 2019-05-28.
+-->
+
 <resources>
 
     <string name="chess">Échecs</string>
@@ -14,8 +20,6 @@
     <string name="no">Non</string>
     <string name="phone_number">Numéro de téléphone</string>
 
-
-
     <string name="reading">En train de lire</string>
     <string name="recommendation">Recommandation</string>
     <string name="selected_hobbies">Loisirs sélectionnés</string>
@@ -24,7 +28,6 @@
     <string name="verify_details">Veuillez vérifier vos coordonnées.</string>
     <string name="yes">Oui</string>
     <string name="thanks">Merci pour votre avis</string>
-
 
     <string name="daily">Du quotidien</string>
     <string name="weekly">Hebdomadaire</string>
@@ -37,10 +40,11 @@
         <item>@string/monthly</item>
         <item>@string/never</item>
     </string-array>
-
-
-
-
+    <string name="cancel">" Annuler"</string>
+    <string name="prompt_app">Souhaitez-vous recommander cette application à un ami?</string>
+    <string name="prompt_hobbies">" S'il vous plaît sélectionnez vos loisirs."</string>
+    <string name="prompt_newsletter">" Veuillez sélectionner la fréquence de newsletter."</string>
+    <string name="submit">" Soumettre"</string>
 
 
 </resources>

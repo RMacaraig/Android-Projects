@@ -20,7 +20,7 @@ import android.widget.Spinner;
 //implements View.OnClickListener is used to call submit and cancel buttons
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //class global variables initialized
+    // global variables initialized
     Button btnSubmit, btnCancel;
     EditText edtName, edtEmail, edtPhone;
     RadioGroup rdoApp;
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //creating object of array adapter class for the character sequence type
         //createFromResource is used to create object and specify context of current activity
         ArrayAdapter<CharSequence> dayAdapter =
-                ArrayAdapter.createFromResource(this, R.array.newsletter_array_eng,
+                ArrayAdapter.createFromResource(this, R.array.newsletter_array,
                         android.R.layout.simple_spinner_dropdown_item);
 
         //calling spinner array
@@ -129,30 +129,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
         //String app = rdoSelected.getText().toString();
 
+        //initialize radio button yes when clicked and call spinner selected with credit score
         String app = "";
         String newsYes = "";
         if (rdoYes.isChecked()) {
 
             app = rdoYes.getResources().getString(R.string.yes);
 
-            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+            if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
 
                 newsYes += getResources().getString(R.string.daily);
                 creditScore += 20;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
 
                 newsYes += getResources().getString(R.string.weekly);
                 creditScore += 15;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
                 newsYes += getResources().getString(R.string.monthly);
                 creditScore += 10;
             }
-            if (spnNewsletter.getSelectedItem().equals("Never")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
 
                 newsYes += getResources().getString(R.string.never);
                 creditScore += 0;
@@ -160,52 +161,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        //initialize radio button no when clicked and call spinner selected with credit score
         String newsNo = "";
         if (rdoNo.isChecked()) {
 
             app = rdoNo.getResources().getString(R.string.no);
 
-            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+            if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
                 newsNo += getResources().getString(R.string.daily);
                 creditScore += 05;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
                 newsNo += getResources().getString(R.string.weekly);
                 creditScore += 0;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
                 newsNo += getResources().getString(R.string.monthly);
                 creditScore += 0;
             }
-            if (spnNewsletter.getSelectedItem().equals("Never")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
                 newsNo += getResources().getString(R.string.never);
                 creditScore += 0;
             }
 
         }
 
+        //initialize radio button maybe when clicked and call spinner selected with credit score
         String newsMaybe = "";
         if (rdoMaybe.isChecked()) {
 
             app = rdoMaybe.getResources().getString(R.string.maybe);
 
-            if (spnNewsletter.getSelectedItem().equals("Daily")) {
+            if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
                 newsMaybe += getResources().getString(R.string.daily);
                 creditScore += 05;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Weekly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
                 newsMaybe += getResources().getString(R.string.weekly);
                 creditScore += 02;
             }
 
-            if (spnNewsletter.getSelectedItem().equals("Monthly")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
                 newsMaybe += getResources().getString(R.string.monthly);
                 creditScore += 0;
             }
-            if (spnNewsletter.getSelectedItem().equals("Never")) {
+            else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
                 newsMaybe += getResources().getString(R.string.never);
                 creditScore += 0;
             }
@@ -262,6 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         number = phone;
     }
 
+    //method used to open next activity to transfer user information
     private void openNextActivity() {
 
         Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
