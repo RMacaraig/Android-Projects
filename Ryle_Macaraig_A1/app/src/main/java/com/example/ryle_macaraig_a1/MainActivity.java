@@ -22,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // global variables initialized
     Button btnSubmit, btnCancel;
+    String name, email, phoneNumber, recommendation;
     EditText edtName, edtEmail, edtPhone;
+
     RadioGroup rdoApp;
     RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
 
@@ -31,12 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
 
-    String newsletter = "";
-    String recommendation = "";
-    String hobbies = "";
-    String nameUser = "";
-    String emailUser = "";
-    String number = "";
+    String newsletter;
+    //String recommendation = "";
+    String hobbies;
+    String nameUser;
+    String emailUser;
+    String number;
 
     Integer creditScore = 0;
 
@@ -105,24 +107,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_submit: //submit button
-                this.getValues(); //method used to get values
+                if (this.validateData()) {
+                    this.getValues();
+                }
                 this.openNextActivity(); //create method to open next activity
-                this.errorCheck(); //method used for error checking
                 break;
         }
-
     }
+
 
     //get values method used when submit button is clicked
     private void getValues() {
 
         //retrieve name, email, and phone of user
-        String name = edtName.getText().toString();
-        String email = edtEmail.getText().toString();
-        String phone = edtPhone.getText().toString();
+        name = edtName.getText().toString();
+        email = edtEmail.getText().toString();
+        phoneNumber = edtPhone.getText().toString();
 
         //getting a radio button that is selected
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
+        recommendation = rdoSelected.getText().toString();
+
+        //spinner selected
+
 
         //initialize radio button yes when clicked and call spinner selected with credit score
         String frequency = "";
@@ -247,8 +254,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         newsletter = frequency;
         nameUser = name;
         emailUser = email;
-        number = phone;
+        number = phoneNumber;
     }
+
+    //error check if users does not input name, email, or phone number
+    private boolean validateData() {
+        boolean allValidations = true;
+
+        //NAME
+        if (edtName.getText().toString().isEmpty()) {
+            edtName.setError("Name is required");
+            allValidations = false;
+        } else if (!Utils.isValidName(edtName.getText().toString())) {
+            edtName.setError("Please provide valid name");
+            allValidations = false;
+        }
+
+        //EMAIL
+        if (edtEmail.getText().toString().isEmpty()) {
+            edtEmail.setError("Email is required");
+            allValidations = false;
+        } else if (!Utils.isValidEmail(edtEmail.getText().toString())) {
+            edtEmail.setError("Please provide valid email address");
+            allValidations = false;
+        }
+
+        //PHONE NUMBER
+        if (edtPhone.getText().toString().isEmpty()) {
+            edtPhone.setError("Phone number is required");
+            allValidations = false;
+        } else if (!Utils.isValidPhoneNumber(edtPhone.getText().toString())) {
+            edtPhone.setError("Please provide valid phone number");
+            allValidations = false;
+        }
+
+        return allValidations;
+
+    }
+
 
     //method used to open next activity to transfer user information
     private void openNextActivity() {
@@ -265,25 +308,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(confirmationIntent);
     }
 
-    //error check if users does not input name, email, or phone number
-    //(added this method for fun)
-    private boolean errorCheck() {
-
-        //editText name when input is empty
-        if (edtName.length() == 0) {
-            edtName.setError("Name is required");
-        }
-
-        //editText email when input is empty
-        if (edtEmail.length() == 0) {
-            edtEmail.setError("Email is required");
-        }
-
-        //editText phone when input is empty
-        if (edtPhone.length() == 0) {
-            edtPhone.setError("Phone number is required");
-        }
-        return true;
-    }
 
 }

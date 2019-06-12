@@ -19,11 +19,6 @@
     <string name="no">No</string>
     <string name="maybe">Maybe</string>
 
-    <!--radio buttons in english only -->
-    <!--<string name="yes_eng" translatable="false">Yes</string>-->
-    <!--<string name="no_eng" translatable="false">No</string>-->
-    <!--<string name="maybe_eng" translatable="false">Maybe</string>-->
-
     <!--text view -->
     <string name="prompt_hobbies">Please select your hobbies.</string>
 
@@ -34,14 +29,6 @@
     <string name="chess">Chess</string>
     <string name="horse_riding">Horse Riding</string>
     <string name="reading">Reading</string>
-
-    <!--&lt;!&ndash;eng check boxes in english only&ndash;&gt;-->
-    <!--<string name="guitar_eng" translatable="false">Guitar</string>-->
-    <!--<string name="football_eng" translatable="false">Football</string>-->
-    <!--<string name="singing_eng" translatable="false">Singing</string>-->
-    <!--<string name="chess_eng" translatable="false">Chess</string>-->
-    <!--<string name="horse_riding_eng" translatable="false">Horse Riding</string>-->
-    <!--<string name="reading_eng" translatable="false">Reading</string>-->
 
     <!--text view -->
     <string name="prompt_newsletter">Please select the frequency of newsletter.</string>
@@ -58,19 +45,6 @@
         <item>@string/never</item>
     </string-array>
 
-    <!--spinner in english only -->
-    <!--<string name="daily_eng" translatable="false">Daily</string>-->
-    <!--<string name="weekly_eng" translatable="false">Weekly</string>-->
-    <!--<string name="monthly_eng" translatable="false">Monthly</string>-->
-    <!--<string name="never_eng" translatable="false">Never</string>-->
-
-    <!--<string-array name="newsletter_array_eng">-->
-    <!--<item>@string/daily_eng</item>-->
-    <!--<item>@string/weekly_eng</item>-->
-    <!--<item>@string/monthly_eng</item>-->
-    <!--<item>@string/never_eng</item>-->
-    <!--</string-array>-->
-
     <!--string resources for confirmation activity -->
     <string name="verify_details">Please verify your details.</string>
     <string name="recommendation">Recommendation</string>
@@ -86,5 +60,15 @@
     <string name="submit">Submit</string>
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
+
+    <!-- login-->
+    <string name="signup">Sign Up</string>
+    <string name="signin">SignIn</string>
+    <string name="firstname_hint">Firstname</string>
+    <string name="lastname_hint">Lastname</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="email_hint">Email address</string>
+    <string name="password_hint">Password</string>
 
 </resources>
