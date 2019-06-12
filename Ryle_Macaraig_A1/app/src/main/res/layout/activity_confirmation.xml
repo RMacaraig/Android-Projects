@@ -43,7 +43,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_user_recommendation"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_verify"
         android:layout_alignParentStart="true"
@@ -91,7 +91,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_newsletter_freq"
-        android:layout_width="185dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_hobbies"
         android:layout_alignParentStart="true"
@@ -116,7 +116,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_user_name"
-        android:layout_width="58dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_newsletter"
         android:layout_alignParentStart="true"
@@ -141,7 +141,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_user_email"
-        android:layout_width="58dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_name"
         android:layout_alignParentStart="true"
@@ -166,7 +166,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_phone_number"
-        android:layout_width="175dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_email"
         android:layout_alignParentStart="true"
@@ -204,7 +204,7 @@ on 2019-06-04.
 
     <TextView
         android:id="@+id/tv_credit_score"
-        android:layout_width="190dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_thanks"
         android:layout_alignParentStart="true"
