@@ -1,5 +1,6 @@
 package com.example.ryle_macaraig_a1;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+
+import com.example.ryle_macaraig_a1.controller.FeedbackController;
+import com.example.ryle_macaraig_a1.model.Feedback;
 
 /**
  * Created by 991435278: Ryle Cheyene Macaraig
@@ -34,11 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
 
     String newsletter;
-    //String recommendation = "";
     String hobbies;
     String nameUser;
     String emailUser;
     String number;
+    String frequency;
+
+    Feedback newFeedback;
+    FeedbackController feedbackController;
 
     Integer creditScore = 0;
 
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //refer to UI views
         this.referWidgets();
+        feedbackController = new FeedbackController();
     }
 
     //method used to call UI views
@@ -109,12 +117,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_submit: //submit button
                 if (this.validateData()) {
                     this.getValues();
+
+                   //newFeedback = new Feedback(recommendation, hobbies, frequency, name, email, phoneNumber);
+
+                    feedbackController.insertFeedback(newFeedback);
+
+                    Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
+                    confirmationIntent.putExtra("EXTRA_EMAIL", email);
+                    startActivity(confirmationIntent);
                 }
-                this.openNextActivity(); //create method to open next activity
                 break;
         }
     }
-
 
     //get values method used when submit button is clicked
     private void getValues() {
@@ -139,22 +153,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
 
                 frequency = getResources().getString(R.string.daily);
-                creditScore += 20;
+                creditScore = 20;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
 
                 frequency = getResources().getString(R.string.weekly);
-                creditScore += 15;
+                creditScore = 15;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
                 frequency = getResources().getString(R.string.monthly);
-                creditScore += 10;
+                creditScore = 10;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
 
                 frequency = getResources().getString(R.string.never);
-                creditScore += 0;
+                creditScore = 0;
             }
 
             //initialize radio button no when clicked and call spinner selected with credit score
@@ -164,22 +178,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
 
                 frequency = getResources().getString(R.string.daily);
-                creditScore += 05;
+                creditScore = 05;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
 
                 frequency = getResources().getString(R.string.weekly);
-                creditScore += 0;
+                creditScore = 0;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
                 frequency = getResources().getString(R.string.monthly);
-                creditScore += 0;
+                creditScore = 0;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
 
                 frequency = getResources().getString(R.string.never);
-                creditScore += 0;
+                creditScore = 0;
 
             }
 
@@ -191,22 +205,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.daily))) {
 
                 frequency = getResources().getString(R.string.daily);
-                creditScore += 05;
+                creditScore = 05;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.weekly))) {
 
                 frequency = getResources().getString(R.string.weekly);
-                creditScore += 02;
+                creditScore = 02;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.monthly))) {
 
                 frequency = getResources().getString(R.string.monthly);
-                creditScore += 0;
+                creditScore = 0;
 
             } else if (spnNewsletter.getSelectedItem().equals(getResources().getString(R.string.never))) {
 
                 frequency = getResources().getString(R.string.never);
-                creditScore += 0;
+                creditScore = 0;
 
             }
         }
@@ -272,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //EMAIL
         if (edtEmail.getText().toString().isEmpty()) {
-            edtEmail.setError("Email is required");
+            edtEmail.setError("Email address is required");
             allValidations = false;
         } else if (!Utils.isValidEmail(edtEmail.getText().toString())) {
             edtEmail.setError("Please provide valid email address");
@@ -287,26 +301,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             edtPhone.setError("Please provide valid phone number");
             allValidations = false;
         }
-
         return allValidations;
-
     }
-
-
-    //method used to open next activity to transfer user information
-    private void openNextActivity() {
-
-        Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
-
-        confirmationIntent.putExtra("EXTRA_RECOMMENDATION", recommendation);
-        confirmationIntent.putExtra("EXTRA_HOBBIES", hobbies);
-        confirmationIntent.putExtra("EXTRA_NEWSLETTER", newsletter);
-        confirmationIntent.putExtra("EXTRA_NAME", nameUser);
-        confirmationIntent.putExtra("EXTRA_EMAIL", emailUser);
-        confirmationIntent.putExtra("EXTRA_NUMBER", number);
-        confirmationIntent.putExtra("EXTRA_CREDIT_SCORE", creditScore);
-        startActivity(confirmationIntent);
-    }
-
 
 }

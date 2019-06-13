@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ Created by 991435278: Ryle Cheyene Macaraig
+ on 2019-05-28.
+-->
+
+<resources>
+
+    <string name="chess">Échecs</string>
+    <string name="credit_score">Pointage de crédit</string>
+    <string name="done">Terminé</string>
+    <string name="email">Email</string>
+    <string name="football">Football </string>
+    <string name="guitar">Guitare</string>
+    <string name="horse_riding">Équitation</string>
+    <string name="maybe">Peut être</string>
+    <string name="name">Nom</string>
+    <string name="newsletter">Fréquence du bulletin</string>
+    <string name="no">Non</string>
+    <string name="phone_number">Numéro de téléphone</string>
+
+    <string name="reading">En train de lire</string>
+    <string name="recommendation">Recommandation</string>
+    <string name="selected_hobbies">Loisirs sélectionnés</string>
+    <string name="singing">En chantant</string>
+    <string name="title">Nous apprécions vos commentaires</string>
+    <string name="verify_details">Veuillez vérifier vos coordonnées.</string>
+    <string name="yes">Oui</string>
+    <string name="thanks">Merci pour votre avis</string>
+
+    <string name="daily">Du quotidien</string>
+    <string name="weekly">Hebdomadaire</string>
+    <string name="monthly">Mensuel</string>
+    <string name="never">Jamais</string>
+
+    <string-array name="newsletter_array">
+        <item>@string/daily</item>
+        <item>@string/weekly</item>
+        <item>@string/monthly</item>
+        <item>@string/never</item>
+    </string-array>
+
+    <string name="cancel">" Annuler"</string>
+    <string name="prompt_app">Souhaitez-vous recommander cette application à un ami?</string>
+    <string name="prompt_hobbies">" S'il vous plaît sélectionnez vos loisirs."</string>
+    <string name="prompt_newsletter">" Veuillez sélectionner la fréquence de newsletter."</string>
+    <string name="submit">" Soumettre"</string>
+
+
+</resources>

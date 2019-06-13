@@ -61,14 +61,4 @@
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
 
-    <!-- login-->
-    <string name="signup">Sign Up</string>
-    <string name="signin">SignIn</string>
-    <string name="firstname_hint">Firstname</string>
-    <string name="lastname_hint">Lastname</string>
-    <string name="confirm_password_hint">Confirm Password</string>
-    <string name="phone_hint">Phone Number</string>
-    <string name="email_hint">Email address</string>
-    <string name="password_hint">Password</string>
-
 </resources>

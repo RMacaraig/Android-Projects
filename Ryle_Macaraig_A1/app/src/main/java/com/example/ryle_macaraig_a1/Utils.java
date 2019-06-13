@@ -20,9 +20,10 @@ public class Utils {
     }
 
     //VALID PHONE NUMBER
+    //*change it to length 10 digits
     public static boolean isValidPhoneNumber(String phoneNumber) {
         if (!TextUtils.isEmpty(phoneNumber)) {
-            return Patterns.PHONE.matcher(phoneNumber).matches();
+            return phoneNumber.length() == 10;
         }
         return false;
     }
@@ -30,8 +31,8 @@ public class Utils {
     //VALID NAME
     public static boolean isValidName(String name) {
 
-        String valid = "^[a-zA-Z ]+$";
-        Pattern pattern = Pattern.compile(valid, Pattern.CASE_INSENSITIVE);
+        String user = "^[a-zA-Z ]+$";
+        Pattern pattern = Pattern.compile(user, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(name);
         return matcher.find();
     }

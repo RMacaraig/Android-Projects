@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ryle_macaraig_a1.controller.FeedbackController;
+import com.example.ryle_macaraig_a1.model.Feedback;
+
 public class ConfirmationActivity extends AppCompatActivity implements View.OnClickListener {
 
     //global variables
@@ -20,13 +23,17 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
             tvNumber,
             tvScore;
 
+    FeedbackController feedbackController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
+
         this.referWidgets(); //refer to UI views
-        this.fetchExtras(); //get info from previous screen
+        feedbackController = new FeedbackController();
+        this.fetchFeedbackInfo(); //get info from previous screen
 
     }
 
@@ -47,30 +54,29 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    private void fetchExtras() {
+    private void fetchFeedbackInfo() {
+        Intent thisIntent = this.getIntent();
+        String email = thisIntent.getStringExtra("EXTRA_EMAIL");
 
-        //calling current intent class
-        Intent currentIntent = this.getIntent();
+        Feedback currentFeedback = feedbackController.fetchFeedbackByEmail(email);
+        tvEmail.setText(currentFeedback.toString());
 
-        String recommendation = currentIntent.getStringExtra("EXTRA_RECOMMENDATION"); //retrieve the string used
+        String recommendation = currentFeedback.getRecommendation();
         tvRecommendation.setText(recommendation);
 
-        String hobbies = currentIntent.getStringExtra("EXTRA_HOBBIES");
+        String hobbies = currentFeedback.getHobbies();
         tvHobbies.setText(hobbies);
 
-        String newsletterYes = currentIntent.getStringExtra("EXTRA_NEWSLETTER");
+        String newsletterYes = currentFeedback.getFrequency();
         tvNewsletter.setText(newsletterYes);
 
-        String nameUser = currentIntent.getStringExtra("EXTRA_NAME");
+        String nameUser = currentFeedback.getName();
         tvName.setText(nameUser);
 
-        String emailUser = currentIntent.getStringExtra("EXTRA_EMAIL");
-        tvEmail.setText(emailUser);
-
-        String number = currentIntent.getStringExtra("EXTRA_NUMBER");
+        String number = currentFeedback.getPhoneNumber();
         tvNumber.setText(number);
 
-        Integer creditScore = currentIntent.getIntExtra("EXTRA_CREDIT_SCORE", 0);
+        Integer creditScore = currentFeedback.getCreditScore();
         tvScore.setText(creditScore.toString());
 
     }

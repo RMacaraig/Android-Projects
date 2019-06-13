@@ -8,13 +8,12 @@ package com.example.ryle_macaraig_a1.model;
 //model
 public class Feedback {
 
-    String recommendation, hobbies, frequency, name,
-            email, phoneNumber, creditScore;
+    String recommendation, hobbies, frequency, name, email, phoneNumber;
+    Integer creditScore;
 
     // constructor, getters, setters and toString()
-
     public Feedback(String recommendation, String hobbies, String frequency,
-                    String name, String email, String phoneNumber, String creditScore) {
+                    String name, String email, String phoneNumber, Integer creditScore) {
         this.recommendation = recommendation;
         this.hobbies = hobbies;
         this.frequency = frequency;
@@ -48,7 +47,7 @@ public class Feedback {
         return phoneNumber;
     }
 
-    public String getCreditScore() {
+    public Integer getCreditScore() {
         return creditScore;
     }
 
@@ -76,7 +75,7 @@ public class Feedback {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setCreditScore(String creditScore) {
+    public void setCreditScore(Integer creditScore) {
         this.creditScore = creditScore;
     }
 
@@ -89,7 +88,7 @@ public class Feedback {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", creditScore='" + creditScore + '\'' +
+                ", creditScore=" + creditScore +
                 '}';
     }
 }

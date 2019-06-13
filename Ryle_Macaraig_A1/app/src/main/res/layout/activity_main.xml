@@ -59,6 +59,7 @@
             android:layout_weight="1"
             android:text="@string/yes"
             android:textSize="18sp" />
+        <!--android:checked="true"-->
 
         <RadioButton
             android:id="@+id/rdo_no"
