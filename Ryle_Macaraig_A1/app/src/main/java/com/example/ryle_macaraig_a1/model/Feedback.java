@@ -12,6 +12,7 @@ public class Feedback {
     Integer creditScore;
 
     // constructor, getters, setters and toString()
+
     public Feedback(String recommendation, String hobbies, String frequency,
                     String name, String email, String phoneNumber, Integer creditScore) {
         this.recommendation = recommendation;

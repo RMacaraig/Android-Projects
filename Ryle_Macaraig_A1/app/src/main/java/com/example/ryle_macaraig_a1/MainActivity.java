@@ -1,9 +1,9 @@
 package com.example.ryle_macaraig_a1;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,28 +26,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // global variables initialized
     Button btnSubmit, btnCancel;
-    String name, email, phoneNumber, recommendation;
     EditText edtName, edtEmail, edtPhone;
-
     RadioGroup rdoApp;
     RadioButton rdoSelected; //radio buttons-only 1 radio button is selected
-
     RadioButton rdoYes, rdoNo, rdoMaybe;
 
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
+    String nameUser, emailUser, number, newsletter, selectedHobbies;
 
-    String newsletter;
-    String hobbies;
-    String nameUser;
-    String emailUser;
-    String number;
-    String frequency;
+    String recommendation, hobbies, frequency, name, email, phoneNumber;
+    Integer creditScore = 0;
 
     Feedback newFeedback;
     FeedbackController feedbackController;
-
-    Integer creditScore = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,8 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (this.validateData()) {
                     this.getValues();
 
-                   //newFeedback = new Feedback(recommendation, hobbies, frequency, name, email, phoneNumber);
-
+                    newFeedback = new Feedback(recommendation, hobbies, frequency, name, email, phoneNumber, creditScore);
                     feedbackController.insertFeedback(newFeedback);
 
                     Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
@@ -146,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //initialize radio button yes when clicked and call spinner selected with credit score
-        String frequency = "";
+         frequency = "";
         if (rdoYes.isChecked()) {
             recommendation = getResources().getString(R.string.yes);
 
@@ -227,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //check box functionality when clicked
         //users can have multiple check boxes clicked
-        String selectedHobbies = "";
+        selectedHobbies = "";
         if (chkGuitar.isChecked()) {
 
             selectedHobbies += getResources().getString(R.string.guitar);
