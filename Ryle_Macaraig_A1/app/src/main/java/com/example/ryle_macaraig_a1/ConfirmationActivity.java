@@ -25,14 +25,16 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
     FeedbackController feedbackController;
 
+//    String recommendation, hobbies, newsletterYes, nameUser, number;
+//    Integer creditScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
 
-
         this.referWidgets(); //refer to UI views
-        feedbackController = new FeedbackController();
+        feedbackController = new FeedbackController(); //feedback controller
         this.fetchFeedbackInfo(); //get info from previous screen
 
     }
@@ -54,30 +56,40 @@ public class ConfirmationActivity extends AppCompatActivity implements View.OnCl
 
     }
 
+    //display all user info to text view
     private void fetchFeedbackInfo() {
         Intent thisIntent = this.getIntent();
         String email = thisIntent.getStringExtra("EXTRA_EMAIL");
 
+//        Feedback currentFeedback = feedbackController.fetchFeedbackByEmail(email);
+//        tvEmail.setText(currentFeedback.toString());
+
         Feedback currentFeedback = feedbackController.fetchFeedbackByEmail(email);
-        tvEmail.setText(currentFeedback.toString());
+        tvEmail.setText(email);
 
-        String recommendation = currentFeedback.getRecommendation();
-        tvRecommendation.setText(recommendation);
+        if (currentFeedback != null) {
 
-        String hobbies = currentFeedback.getHobbies();
-        tvHobbies.setText(hobbies);
+            String recommendation = currentFeedback.getRecommendation();
+            tvRecommendation.setText(recommendation);
 
-        String newsletterYes = currentFeedback.getFrequency();
-        tvNewsletter.setText(newsletterYes);
+            String hobbies = currentFeedback.getHobbies();
+            tvHobbies.setText(hobbies);
 
-        String nameUser = currentFeedback.getName();
-        tvName.setText(nameUser);
+            String newsletterYes = currentFeedback.getFrequency();
+            tvNewsletter.setText(newsletterYes);
 
-        String number = currentFeedback.getPhoneNumber();
-        tvNumber.setText(number);
+            String nameUser = currentFeedback.getName();
+            tvName.setText(nameUser);
 
-        Integer creditScore = currentFeedback.getCreditScore();
-        tvScore.setText(creditScore.toString());
+            String number = currentFeedback.getPhoneNumber();
+            tvNumber.setText(number);
+
+            Integer creditScore = currentFeedback.getCreditScore();
+            tvScore.setText(creditScore.toString());
+
+//            Double amount = currentFeedback.getAmount;
+//            tvAmount.setText(amount.toString());
+        }
 
     }
 

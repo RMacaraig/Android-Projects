@@ -11,8 +11,7 @@ public class Feedback {
     String recommendation, hobbies, frequency, name, email, phoneNumber;
     Integer creditScore;
 
-    // constructor, getters, setters and toString()
-
+    //constructor
     public Feedback(String recommendation, String hobbies, String frequency,
                     String name, String email, String phoneNumber, Integer creditScore) {
         this.recommendation = recommendation;
@@ -24,6 +23,7 @@ public class Feedback {
         this.creditScore = creditScore;
     }
 
+    //get and set methods
     public String getRecommendation() {
         return recommendation;
     }
@@ -80,6 +80,7 @@ public class Feedback {
         this.creditScore = creditScore;
     }
 
+    //to string method
     @Override
     public String toString() {
         return "Feedback{" +

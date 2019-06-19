@@ -34,9 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Spinner spnNewsletter;
     CheckBox chkGuitar, chkFootball, chkSinging, chkChess, chkHorseRiding, chkReading;
     String nameUser, emailUser, number, newsletter, selectedHobbies;
-
     String recommendation, hobbies, frequency, name, email, phoneNumber;
     Integer creditScore = 0;
+    //Double amount = 0.0;
+
 
     Feedback newFeedback;
     FeedbackController feedbackController;
@@ -50,6 +51,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.referWidgets();
         feedbackController = new FeedbackController();
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //this.resetWidgets();
+        this.onBackPressed();
+    }
+
+
+
 
     //method used to call UI views
     private void referWidgets() {
@@ -88,6 +99,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //calling spinner array
         spnNewsletter.setAdapter(dayAdapter);
 
+
+
+//        ArrayAdapter<CharSequence> numberAdapter =
+//                ArrayAdapter.createFromResource(this, R.array.number_array,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//        spnCream.setAdapter(numberAdapter);
+//
+//
+//        ArrayAdapter<CharSequence> sugarAdapter =
+//                ArrayAdapter.createFromResource(this, R.array.sugar_array,
+//                        android.R.layout.simple_spinner_dropdown_item);
+//        spnSugar.setAdapter(sugarAdapter);
+
+
+
+
+
         //submit button on click
         btnSubmit = findViewById(R.id.btn_submit);
         btnSubmit.setOnClickListener(this);
@@ -97,6 +125,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCancel.setOnClickListener(this);
 
     }
+
+
+    public void onBackPressed() {
+        rdoSelected.setChecked(false);
+        rdoYes.setChecked(false);
+        rdoNo.setChecked(false);
+        rdoMaybe.setChecked(false);
+        chkGuitar.setChecked(false);
+        chkFootball.setChecked(false);
+        chkSinging.setChecked(false);
+        chkChess.setChecked(false);
+        chkHorseRiding.setChecked(false);
+        chkReading.setChecked(false);
+        spnNewsletter.setSelection(0);
+        edtName.setText("");
+        edtEmail.setText("");
+        edtPhone.setText("");
+        creditScore = 0;
+    }
+
+
 
     //onClick method used when submit and cancel buttons are clicked
     @Override
@@ -110,9 +159,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (this.validateData()) {
                     this.getValues();
 
+                    //get feedback info
                     newFeedback = new Feedback(recommendation, hobbies, frequency, name, email, phoneNumber, creditScore);
                     feedbackController.insertFeedback(newFeedback);
 
+                    //calling confirmation activity
                     Intent confirmationIntent = new Intent(this, ConfirmationActivity.class);
                     confirmationIntent.putExtra("EXTRA_EMAIL", email);
                     startActivity(confirmationIntent);
@@ -132,9 +183,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //getting a radio button that is selected
         rdoSelected = findViewById(rdoApp.getCheckedRadioButtonId());
         recommendation = rdoSelected.getText().toString();
-
-        //spinner selected
-
 
         //initialize radio button yes when clicked and call spinner selected with credit score
          frequency = "";

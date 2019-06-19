@@ -58,14 +58,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/yes"
-            android:textSize="18sp" />
-        <!--android:checked="true"-->
+            android:textSize="18sp"
+            android:checked="true"/>
+
 
         <RadioButton
             android:id="@+id/rdo_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1o"
             android:text="@string/no"
             android:textSize="18sp" />
 

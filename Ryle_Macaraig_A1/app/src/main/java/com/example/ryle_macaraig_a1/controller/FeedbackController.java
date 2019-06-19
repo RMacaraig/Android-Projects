@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 //controller
-//insertFeedback() method to add the given feedback to the list of existing feedbacks
+//insertFeedback() method used to add the given feedback to the list of existing feedbacks
 public class FeedbackController {
 
     public void insertFeedback(Feedback newFeedback){
@@ -19,6 +19,7 @@ public class FeedbackController {
         FeedbackSingleton.getInstance().addFeedback(newFeedback);
     }
 
+    //get email
     public Feedback fetchFeedbackByEmail(String email){
         return FeedbackSingleton.getInstance().getFeedbackByEmail(email);
     }

@@ -20,7 +20,7 @@ public class Utils {
     }
 
     //VALID PHONE NUMBER
-    //*change it to length 10 digits
+    //phone number needs to be 10 digits
     public static boolean isValidPhoneNumber(String phoneNumber) {
         if (!TextUtils.isEmpty(phoneNumber)) {
             return phoneNumber.length() == 10;
@@ -30,7 +30,10 @@ public class Utils {
 
     //VALID NAME
     public static boolean isValidName(String name) {
-
+        // ^ beginning of string
+        // [a-zA-Z ] search for letters
+        // + string has at least one letter
+        // $ end of string
         String user = "^[a-zA-Z ]+$";
         Pattern pattern = Pattern.compile(user, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(name);

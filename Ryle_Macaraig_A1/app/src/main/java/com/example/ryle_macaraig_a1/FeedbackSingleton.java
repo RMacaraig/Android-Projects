@@ -1,5 +1,7 @@
 package com.example.ryle_macaraig_a1;
 
+import android.util.Log;
+
 import com.example.ryle_macaraig_a1.model.Feedback;
 
 import java.util.ArrayList;
@@ -49,6 +51,9 @@ public class FeedbackSingleton {
             //checking if the current feedback object is same as we are searching
             if (currentFeedback.getEmail().equals(email)){
                 //feedback account found and returning object
+
+                //Log.d("FeedbackSingleton", currentFeedback.toString());
+
                 return currentFeedback;
             }
         }
