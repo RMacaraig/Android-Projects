@@ -1,5 +1,6 @@
 package com.jk.billcalc.controller;
 
+import com.jk.billcalc.BillSingleton;
 import com.jk.billcalc.model.Bill;
 
 /**
