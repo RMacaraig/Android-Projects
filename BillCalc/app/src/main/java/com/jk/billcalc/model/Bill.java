@@ -12,7 +12,7 @@ public class Bill {
     Integer weekday, evening, video;
     Float total;
 
-    public Bill(String accountNumber, String name, Integer weekday, Integer evening, Integer video, Float total) {
+    public Bill(String accountNumber, String name, Integer weekday, Integer evening, Integer video, String total) {
         this.accountNumber = accountNumber;
         this.name = name;
         this.weekday = weekday;
