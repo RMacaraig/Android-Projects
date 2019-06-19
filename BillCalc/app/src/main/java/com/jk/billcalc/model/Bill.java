@@ -18,7 +18,7 @@ public class Bill {
         this.weekday = weekday;
         this.evening = evening;
         this.video = video;
-        this.total = total;
+        //this.total = total;
     }
 
     public String getAccountNumber() {
