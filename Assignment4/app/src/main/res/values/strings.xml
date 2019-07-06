@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment4</string>
+    <string name="btn_select">Select Province</string>
+    <string name="info">Selected Province Info:</string>
+    <string name="name">Province Name:</string>
+    <string name="city">Capital City:</string>
+</resources>

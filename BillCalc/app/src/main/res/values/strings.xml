@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BillCalc</string>
+    <string name="title">Bill Calc</string>
+    <string name="account_number">Account Number</string>
+    <string name="name">Name</string>
+    <string name="weekday">Weekday</string>
+    <string name="evening">Evening</string>
+    <string name="video">Video call</string>
+    <string name="minutes">Minutes</string>
+    <string name="calculate">Calculate Bill</string>
+    <string name="weekday_charges">Weekday Charges</string>
+    <string name="evening_charges">Evening Charges</string>
+    <string name="video_charges">Video Charges</string>
+    <string name="bill_amount">Total Bill Amount</string>
+    <string name="thank_you">Thank you very much</string>
+    <string name="done">Done</string>
+</resources>
