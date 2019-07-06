@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CalcSpinner</string>
+
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+
+    <string-array name="calculations">
+        <item>@string/addition</item>
+        <item>@string/subtraction</item>
+        <item>@string/multiplication</item>
+        <item>@string/division</item>
+    </string-array>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="btn_calc_text">Calculate BMI</string>
+    <string name="error_missing_height">Height must be entered</string>
+</resources>
