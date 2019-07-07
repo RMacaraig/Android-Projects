@@ -16,14 +16,15 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_view_row);
+        setContentView(R.layout.activity_second);
 
         Intent currentIntent = this.getIntent();
-
-        listView = findViewById(R.id.listView);
-
-        //create method for province and capital list
+        listView = findViewById(R.id.list);
         createList();
+
+        MyAdapter adapter = new MyAdapter(this, R.layout.list_view_row, provinceList);
+        listView.setAdapter(adapter);
+
     }
 
     //province list for province name and capital city
