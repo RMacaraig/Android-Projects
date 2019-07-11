@@ -5,7 +5,7 @@ package com.example.assignment4;
  * on 2019-07-06.
  */
 public class Province {
-
+    //used to call name, capital, and image
     String name;
     String capital;
     int amId;
@@ -17,7 +17,7 @@ public class Province {
         this.amId = amId;
     }
 
-    //get methods
+    //get methods for name, capital and image
     public String getName() {
         return name;
     }
