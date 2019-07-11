@@ -1,5 +1,6 @@
 package com.example.listview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,37 +10,85 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    String[] cities = new String[]{
-            "Toronto",
-            "Mississauga",
-            "Ottawa",
-            "W.D",
-            "London",
-            "Oakville",
-            "Calgary",
-            "New York",
-            "Mexico"
-    };
+    ListView theListView, myListView;
+    Intent myIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.list);
-        ArrayAdapter adapter = new ArrayAdapter<String> (this, R.layout.support_simple_spinner_dropdown_item, cities);
-        listView.setAdapter(adapter);
+        myIntent = new Intent(this, SecondActivity.class);
+        theListView = findViewById(R.id.list);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        myListView = findViewById(R.id.listTwo);
+
+        String[] cities = {
+                "Toronto",
+                "Mississauga",
+                "Ottawa",
+                "W.D",
+                "London",
+                "Oakville",
+                "Calgary",
+                "New York",
+                "Mexico"
+        };
+
+        String[] province = {
+                "Toronto",
+                "Mississauga",
+                "Ottawa",
+                "W.D",
+                "London",
+                "Oakville",
+                "Calgary",
+                "New York",
+                "Mexico"
+        };
+
+
+        ArrayAdapter adapter = new ArrayAdapter<String> (this, R.layout.support_simple_spinner_dropdown_item, cities);
+        theListView.setAdapter(adapter);
+
+        ArrayAdapter adapterTwo = new ArrayAdapter<String> (this, R.layout.support_simple_spinner_dropdown_item, province);
+        myListView.setAdapter(adapterTwo);
+
+
+
+
+        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
 
                 String item = (String) parent.getItemAtPosition(position);
-                Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+                myIntent.putExtra("STUFF", item);
 
+
+                startActivity(myIntent);
             }
         });
+
+
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, final View view,
+                                    int position, long id) {
+
+                String item = (String) parent.getItemAtPosition(position);
+
+                myIntent.putExtra("LA", item);
+
+                startActivity(myIntent);
+            }
+        });
+
+
+
+
+
 
     }
 

@@ -13,7 +13,7 @@ public class Province {
     //constructor for name, capital, and image
     public Province(String name, String capital, int amId) {
         this.name = name;
-        this.capital = capital;
+        this.capital = "Capital: " + capital;
         this.amId = amId;
     }
 

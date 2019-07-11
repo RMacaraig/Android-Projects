@@ -44,4 +44,6 @@ public class MyAdapter extends ArrayAdapter {
         amImage.setBackgroundResource(provinces.get(position).getAmId());
         return view;
     }
+
+
 }
