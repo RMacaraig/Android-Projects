@@ -1,9 +1,14 @@
 package com.example.assignment4;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -33,6 +38,56 @@ public class SecondActivity extends AppCompatActivity {
         listView.setOnItemClickListener(listClick); //creating an on click listener for list view when clicked
 
     }
+
+    //method used to get menu activity (select province)
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.my_menu, menu);
+
+        return true;
+    }
+    //refer menu when action is clicked
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+
+        int id = item.getItemId();
+        if(id == R.id.select_province){
+
+            //alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Would you like to open Second Activity?") //title for dialog
+
+                    //no button for dialog when clicked
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //stay on remaining activity page
+                        }
+                    })
+
+                    //yes button for dialog when clicked
+                    .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            //intent used to go to second activity
+                            Intent secondIntent = new Intent(SecondActivity.this, SecondActivity.class);
+                            startActivityForResult(secondIntent, 1); //call activity for result to provide information back from list
+                        }
+
+                    });
+
+            //create and show alert dialog
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     //list view on click listener used to get province and city name to go back to first activity when clicked
     private AdapterView.OnItemClickListener listClick = new AdapterView.OnItemClickListener() {
