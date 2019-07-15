@@ -3,5 +3,5 @@
 
     <item
         android:id="@+id/select_province"
-        android:title="@string/btn_select"/>
+        android:title="@string/btn_select" />
 </menu>
